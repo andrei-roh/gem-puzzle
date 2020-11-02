@@ -1,0 +1,46 @@
+body {
+	background-color: #56526a;
+}
+
+#reset {
+	border: solid 1px white;
+	background-color: #56526a;
+	color: white;
+	margin-top: 5px;
+}
+
+td {
+	text-align: center;
+	font-family: Times New Roman;
+	color: white;
+	vertical-align: middle;
+}
+#box td {
+	border: solid 1px white;
+	text-align: center;
+	font-size: 40px;
+	font-family: Times New Roman;
+	color: white;
+	width: 55px;
+	height: 55px;
+}
+
+#box td:hover {
+	color: white;
+	cursor: pointer;
+}
+
+#box {
+  display: flex;
+  justify-content: center;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu_button {
+  align-self: center;
+  width: 100px;
+}
