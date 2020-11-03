@@ -34,6 +34,9 @@ td {
 #box {
   display: flex;
   justify-content: center;
+	height: 500px;
+	width: 500px;
+	align-items: center;
 }
 .flex_column {
   display: flex;
@@ -46,7 +49,7 @@ td {
 .board_checked {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-self	: center;
 	color: white;
 }
 .flex_row {
@@ -55,4 +58,7 @@ td {
 }
 .justify_content_space_around {
 	justify-content: space-around;
+}
+#moves {
+	color: white;
 }

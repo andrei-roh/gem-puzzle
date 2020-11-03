@@ -13,7 +13,11 @@
         <form name=MyForm>
           <input name=stopwatch size=10 value="00:00:00.00" disabled>
         </form>
+        <div id="moves"></div>
         <button class="menu_button" id="reset" type="button" name="button">New Game</button>
+      </div>
+      <div class="flex_row justify_content_space_around">
+        <div id="box"></div>
         <div class="board_checked">
           <form>
             <p>Change board size</p>
@@ -21,10 +25,11 @@
             <p><input id="4x4" name="board" type="radio" value="nedzen" checked>4x4</p></p>
             <p><input id="5x5" name="board" type="radio" value="nedzen">5x5</p>
             <p><input id="6x6" name="board" type="radio" value="nedzen">6x6</p>
+            <p><input id="7x7" name="board" type="radio" value="nedzen">7x7</p>
+            <p><input id="8x8" name="board" type="radio" value="nedzen">8x8</p>
           </form>
         </div>
       </div>
-      <div id="box"></div>
     </div>
   </body>
   <script src="js/game.js" type="text/javascript"></script>

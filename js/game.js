@@ -1,4 +1,9 @@
 var arr = [], box, emptyRow, emptyColumn;
+var playerMoves = 0;
+
+var moves = document.getElementById('moves');
+moves.innerHTML = `Moves: ${playerMoves}`;
+
 let startBoard = {
 	setRows: 4,
 	setColumns: 4,
@@ -50,6 +55,28 @@ bigBoard.addEventListener ('click', () => {
 	createNumbers();
 });
 
+var biggestBoard = document.getElementById('7x7');
+biggestBoard.addEventListener ('click', () => {
+	startBoard = {
+		setRows: 7,
+		setColumns: 7,
+		setLimit: 12,
+		setMultiplier: 7,
+	};
+	createNumbers();
+});
+
+var hugeBoard = document.getElementById('8x8');
+hugeBoard.addEventListener ('click', () => {
+	startBoard = {
+		setRows: 8,
+		setColumns: 8,
+		setLimit: 14,
+		setMultiplier: 8,
+	};
+	createNumbers();
+});
+
 //change two elements on array
 function swap(arr,i1,j1,i2,j2) {
 	t = arr[i1][j1];
@@ -67,6 +94,7 @@ window.onload = function() {
 	}
 }
 function cellClick(event) {
+	playerMoves += 1;
 	var event = event || window.event,
 		el = event.srcElement || event.target,
     /*
@@ -81,26 +109,29 @@ function cellClick(event) {
      * с ячейкой, по которой кликнули, и расстояние между
      * этими ячейками 1, то меняем их содержимое местами
      */
+		 console.log(playerMoves)
+
 	if((i == emptyRow && Math.abs(j - emptyColumn) == 1) || (j == emptyColumn && Math.abs(i - emptyRow) == 1)){
 		document.getElementById(emptyRow + " " + emptyColumn).innerHTML = el.innerHTML;
 		el.innerHTML = "";
     //Запоминаем положение пустой ячейки
 		emptyRow = i;
 		emptyColumn = j;
-		var q = true;
+		var checkVictory = true;
     //Проверяем не в выигрышной ли комбинации находятся ячейки.
 		for(i = 0; i < startBoard.setRows; ++i)
 			for(j = 0; j < startBoard.setColumns; ++j)
-				if(i + j != 6 && document.getElementById(i + " " + j).innerHTML != i * startBoard.setMultiplier + j + 1){
-					q = false;
+				if(i + j != startBoard.setLimits && document.getElementById(i + " " + j).innerHTML != i * startBoard.setMultiplier + j + 1){
+					checkVictory = false;
 					break;
 				}
-				if(q) alert("Victory!");
+				if(checkVictory) alert("Victory!");
 			}
 }
 
 //added array with 15 elements
 function createNumbers(){
+	moves = 0;
 	for(rows = 0; rows < startBoard.setRows; ++rows){
 		arr[rows] = []
 		for(columns = 0; columns < startBoard.setRows; ++columns){
