@@ -1,14 +1,17 @@
 body {
 	background-color: #56526a;
 }
-
+input {
+	background-color: #56526a;
+	border: none;
+	color: white;
+}
 #reset {
 	border: solid 1px white;
 	background-color: #56526a;
 	color: white;
 	margin-top: 5px;
 }
-
 td {
 	text-align: center;
 	font-family: Times New Roman;
@@ -24,23 +27,32 @@ td {
 	width: 55px;
 	height: 55px;
 }
-
 #box td:hover {
 	color: white;
 	cursor: pointer;
 }
-
 #box {
   display: flex;
   justify-content: center;
 }
-
 .flex_column {
   display: flex;
   flex-direction: column;
 }
-
 .menu_button {
   align-self: center;
   width: 100px;
+}
+.board_checked {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: white;
+}
+.flex_row {
+	display: flex;
+	flex-direction: row;
+}
+.justify_content_space_around {
+	justify-content: space-around;
 }

@@ -1,4 +1,55 @@
-var arr = [], box, ei,ej;
+var arr = [], box, emptyRow, emptyColumn;
+let startBoard = {
+	setRows: 4,
+	setColumns: 4,
+	setLimit: 6,
+	setMultiplier: 4,
+}
+
+var tinyBoard = document.getElementById('3x3');
+tinyBoard.addEventListener ('click', () => {
+	startBoard = {
+		setRows: 3,
+		setColumns: 3,
+		setLimit: 4,
+		setMultiplier: 3,
+	};
+	createNumbers();
+});
+
+var smallBoard = document.getElementById('4x4');
+smallBoard.addEventListener ('click', () => {
+	startBoard = {
+		setRows: 4,
+		setColumns: 4,
+		setLimit: 6,
+		setMultiplier: 4,
+	};
+	createNumbers();
+});
+
+var middleBoard = document.getElementById('5x5');
+middleBoard.addEventListener ('click', () => {
+	startBoard = {
+		setRows: 5,
+		setColumns: 5,
+		setLimit: 8,
+		setMultiplier: 5,
+	};
+	createNumbers();
+});
+
+var bigBoard = document.getElementById('6x6');
+bigBoard.addEventListener ('click', () => {
+	startBoard = {
+		setRows: 6,
+		setColumns: 6,
+		setLimit: 10,
+		setMultiplier: 6,
+	};
+	createNumbers();
+});
+
 //change two elements on array
 function swap(arr,i1,j1,i2,j2) {
 	t = arr[i1][j1];
@@ -6,9 +57,14 @@ function swap(arr,i1,j1,i2,j2) {
 	arr[i2][j2] = t;
 }
 window.onload = function() {
+	startTimer()
 	box = document.getElementById("box");
-	newGame();
-	document.getElementById("reset").onclick = newGame;
+	createNumbers();
+	document.getElementById("reset").onclick = () => {
+		createNumbers();
+		ClearСlock();
+		startTimer();
+	}
 }
 function cellClick(event) {
 	var event = event || window.event,
@@ -25,57 +81,59 @@ function cellClick(event) {
      * с ячейкой, по которой кликнули, и расстояние между
      * этими ячейками 1, то меняем их содержимое местами
      */
-	if((i == ei && Math.abs(j - ej) == 1) || (j == ej && Math.abs(i - ei) == 1)){
-		document.getElementById(ei + " " + ej).innerHTML = el.innerHTML;
+	if((i == emptyRow && Math.abs(j - emptyColumn) == 1) || (j == emptyColumn && Math.abs(i - emptyRow) == 1)){
+		document.getElementById(emptyRow + " " + emptyColumn).innerHTML = el.innerHTML;
 		el.innerHTML = "";
     //Запоминаем положение пустой ячейки
-		ei = i;
-		ej = j;
+		emptyRow = i;
+		emptyColumn = j;
 		var q = true;
     //Проверяем не в выигрышной ли комбинации находятся ячейки.
-		for(i = 0; i < 4; ++i)
-			for(j = 0; j < 4; ++j)
-				if(i + j != 6 && document.getElementById(i + " " + j).innerHTML != i * 4 + j + 1){
+		for(i = 0; i < startBoard.setRows; ++i)
+			for(j = 0; j < startBoard.setColumns; ++j)
+				if(i + j != 6 && document.getElementById(i + " " + j).innerHTML != i * startBoard.setMultiplier + j + 1){
 					q = false;
 					break;
 				}
 				if(q) alert("Victory!");
 			}
 }
+
 //added array with 15 elements
-function newGame(){
-	for(i = 0; i < 4; ++i){
-		arr[i] = []
-		for(j = 0; j < 4; ++j){
-			if(i + j != 6)
-				arr[i][j] = i * 4 + j + 1;
+function createNumbers(){
+	for(rows = 0; rows < startBoard.setRows; ++rows){
+		arr[rows] = []
+		for(columns = 0; columns < startBoard.setRows; ++columns){
+			if(rows + columns != startBoard.setLimit)
+				arr[rows][columns] = rows * startBoard.setMultiplier + columns + 1;
 			else
-				arr[i][j] = "";
+				arr[rows][columns] = "";
 		}
 	}
 
 //mix created elements on array
-	ei = 3;
-	ej = 3;
+	emptyRow = (startBoard.setRows - 1);
+	emptyColumn = (startBoard.setRows - 1);
 	for(i = 0; i < 1600; ++i)
-		switch(Math.round(3 * Math.random())){
+		switch(Math.round((startBoard.setRows - 1) * Math.random())){
       // up
-			case 0: if(ei != 0) swap(arr,ei,ej,--ei,ej); break;
+			case 0: if(emptyRow != 0) swap(arr,emptyRow,emptyColumn,--emptyRow,emptyColumn); break;
       // right
-			case 1: if(ej != 3) swap(arr,ei,ej,ei, ++ej); break;
+			case 1: if(emptyColumn != (startBoard.setRows - 1)) swap(arr,emptyRow,emptyColumn,emptyRow, ++emptyColumn); break;
       // down
-			case 2: if(ei != 3) swap(arr,ei,ej,++ei,ej); break;
+			case 2: if(emptyRow != (startBoard.setRows - 1)) swap(arr,emptyRow,emptyColumn,++emptyRow,emptyColumn); break;
       // left
-			case 3: if(ej != 0) swap(arr,ei,ej,ei,--ej);
+			case 3: if(emptyColumn != 0) swap(arr,emptyRow,emptyColumn,emptyRow,--emptyColumn);
 		}
+
   //create a table
 	var table = document.createElement("table"),
 	tbody = document.createElement("tbody");
 	table.appendChild(tbody);
-	for(i = 0; i < 4; ++i){
+	for(i = 0; i < startBoard.setRows; ++i) {
     //added rows in the table
 		var row = document.createElement("tr");
-		for(j = 0; j < 4; ++j){
+		for(j = 0; j < startBoard.setColumns; ++j) {
       //create cells in the table
 			var cell = document.createElement("td");
 				cell.id = i + " " + j;
