@@ -1,8 +1,15 @@
 var arr = [], box, emptyRow, emptyColumn;
 var playerMoves = 0;
 
+//keysound
+function soundHandler(soundSource) {
+	const keySound = document.createElement('audio');
+	keySound.src = soundSource;
+	keySound.play();
+ }
+
 var moves = document.getElementById('moves');
-moves.innerHTML = `Moves: ${playerMoves}`;
+moves.innerHTML =`Moves: 0`;
 
 let startBoard = {
 	setRows: 4,
@@ -94,6 +101,7 @@ window.onload = function() {
 	}
 }
 function cellClick(event) {
+	soundHandler('./assets/sounds/tink.wav');
 	playerMoves += 1;
 	var event = event || window.event,
 		el = event.srcElement || event.target,
@@ -109,7 +117,7 @@ function cellClick(event) {
      * с ячейкой, по которой кликнули, и расстояние между
      * этими ячейками 1, то меняем их содержимое местами
      */
-		 console.log(playerMoves)
+		 moves.innerHTML =`Moves: ${playerMoves}`;
 
 	if((i == emptyRow && Math.abs(j - emptyColumn) == 1) || (j == emptyColumn && Math.abs(i - emptyRow) == 1)){
 		document.getElementById(emptyRow + " " + emptyColumn).innerHTML = el.innerHTML;
@@ -131,7 +139,7 @@ function cellClick(event) {
 
 //added array with 15 elements
 function createNumbers(){
-	moves = 0;
+	playerMoves = 0;
 	for(rows = 0; rows < startBoard.setRows; ++rows){
 		arr[rows] = []
 		for(columns = 0; columns < startBoard.setRows; ++columns){
