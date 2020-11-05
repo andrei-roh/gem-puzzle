@@ -1,3 +1,6 @@
+* {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
 body {
 	background-color: #56526a;
 }
@@ -5,16 +8,23 @@ input {
 	background-color: #56526a;
 	border: none;
 	color: white;
+	font-size: 16px;
+}
+button,
+button:active,
+button:focus {
+    outline: none;
+		cursor: pointer;
 }
 #reset {
 	border: solid 1px white;
-	background-color: #56526a;
+	background-color: #4b475c;
 	color: white;
 	margin-top: 5px;
+	border: none
 }
 td {
 	text-align: center;
-	font-family: Times New Roman;
 	color: white;
 	vertical-align: middle;
 }
@@ -22,7 +32,6 @@ td {
 	border: solid 1px white;
 	text-align: center;
 	font-size: 40px;
-	font-family: Times New Roman;
 	color: white;
 	width: 55px;
 	height: 55px;
@@ -43,8 +52,11 @@ td {
   flex-direction: column;
 }
 .menu_button {
-  align-self: center;
-  width: 100px;
+	display: flex;
+  width: 200px;
+	border: none;
+	font: inherit;
+	padding-left: 0px;
 }
 .board_checked {
 	display: flex;
@@ -61,4 +73,82 @@ td {
 }
 #moves {
 	color: white;
+}
+.width_500 {
+	width: 500px;
+}
+.align_self_center {
+	align-self: center;
+}
+.time {
+	color: white;
+	font-size: 16px;
+}
+
+/* POPUP style */
+.b-popup{
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: absolute;
+    top: 1200px;
+    padding-top: 1000px;
+    z-index: 100;
+}
+@media only screen and (min-width: 768px){
+  .b-popup {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: absolute;
+    top: 1350px;
+    padding-top: 1000px;
+    z-index: 100;
+  }
+}
+@media only screen and (min-width: 1200px){
+  .b-popup {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: absolute;
+    top: 75px;
+    padding-top: 100px;
+    z-index: 100;
+  }
+}
+.b-popup .b-popup-content{
+    width: 270px;
+    height: 393px;
+    margin: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+}
+@media only screen and (min-width: 768px){
+  .b-popup .b-popup-content {
+    width: 646px;
+    height: 402px;
+    margin: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+@media only screen and (min-width: 1200px){
+  .b-popup .b-popup-content {
+    width: 952px;
+    height: 552px;
+    margin: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+.align_self_flex_end {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }

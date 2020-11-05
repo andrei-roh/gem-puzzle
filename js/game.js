@@ -105,35 +105,28 @@ function cellClick(event) {
 	playerMoves += 1;
 	var event = event || window.event,
 		el = event.srcElement || event.target,
-    /*
-     * получаем номер строки и столбца, на пересечении которых
-     * расположена ячейка. Мы записали их ранее в её id ячейки.
-     */
     //get the number of the row and column at the intersection of which the cell is located.
 		i = el.id.charAt(0),
 		j = el.id.charAt(2);
-    /*
-     * Если пустая ячейка расположена в одном стобце или строке
-     * с ячейкой, по которой кликнули, и расстояние между
-     * этими ячейками 1, то меняем их содержимое местами
-     */
+    /*if empty cell is located in the same row or the same column with the cell that was clicked,
+		then their contents are swapped*/
 		 moves.innerHTML =`Moves: ${playerMoves}`;
 
 	if((i == emptyRow && Math.abs(j - emptyColumn) == 1) || (j == emptyColumn && Math.abs(i - emptyRow) == 1)){
 		document.getElementById(emptyRow + " " + emptyColumn).innerHTML = el.innerHTML;
 		el.innerHTML = "";
-    //Запоминаем положение пустой ячейки
+    //remember a position of the empty cell
 		emptyRow = i;
 		emptyColumn = j;
 		var checkVictory = true;
-    //Проверяем не в выигрышной ли комбинации находятся ячейки.
+    //checked a winning combination
 		for(i = 0; i < startBoard.setRows; ++i)
 			for(j = 0; j < startBoard.setColumns; ++j)
 				if(i + j != startBoard.setLimits && document.getElementById(i + " " + j).innerHTML != i * startBoard.setMultiplier + j + 1){
 					checkVictory = false;
 					break;
 				}
-				if(checkVictory) alert("Victory!");
+				if(checkVictory) PopUpShow();
 			}
 }
 
@@ -189,4 +182,18 @@ function createNumbers(){
 	if(box.childNodes.length == 1)
 		box.removeChild(box.firstChild);
 	  box.appendChild(table);
+}
+
+//POPUP
+$(document).ready(function(){
+		//Скрыть PopUp при загрузке страницы
+		PopUpHide();
+});
+//Функция отображения PopUp
+function PopUpShow(){
+		$("#popup1").show();
+}
+//Функция скрытия PopUp
+function PopUpHide(){
+		$("#popup1").hide();
 }
