@@ -40,7 +40,7 @@
       <div class="flex_row justify_content_space_around width_500 align_self_center">
         <form name=MyForm>
           <span class="time">Time:</span>
-          <input name=stopwatch size=10 value="00:00:00.00" disabled>
+          <input id="watch" name=stopwatch size=10 value="00:00:00.00" disabled>
         </form>
         <div id="moves"></div>
       </div>
@@ -50,10 +50,11 @@
 
       <div class="b-popup" id="popup1">
        <div class="b-popup-content">
-         <div class="flex_column">
-           <a href="javascript:popupHide()" class="cross align_self_flex_end">
+         <div class="flex_column align_items_center justify_content_center height_100">
+           <a href="javascript:PopUpHide()" class="cross align_self_flex_end">
              <img class="vertical_align_middle" src="assets/icons/cross.svg">
            </a>
+           <div id="victory" class="victory"></div>
          </div>
        </div>
      </div>

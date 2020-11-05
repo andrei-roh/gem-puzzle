@@ -9,6 +9,8 @@ function soundHandler(soundSource) {
  }
 
 var moves = document.getElementById('moves');
+var victoryMessage = document.getElementById('victory');
+var watchTime = document.getElementById('watch')
 moves.innerHTML =`Moves: 0`;
 
 let startBoard = {
@@ -16,6 +18,7 @@ let startBoard = {
 	setColumns: 4,
 	setLimit: 6,
 	setMultiplier: 4,
+	numberOfCombinations: 1600,
 }
 
 var tinyBoard = document.getElementById('3x3');
@@ -25,6 +28,7 @@ tinyBoard.addEventListener ('click', () => {
 		setColumns: 3,
 		setLimit: 4,
 		setMultiplier: 3,
+		numberOfCombinations: 900,
 	};
 	createNumbers();
 });
@@ -36,6 +40,7 @@ smallBoard.addEventListener ('click', () => {
 		setColumns: 4,
 		setLimit: 6,
 		setMultiplier: 4,
+		numberOfCombinations: 1600,
 	};
 	createNumbers();
 });
@@ -47,6 +52,7 @@ middleBoard.addEventListener ('click', () => {
 		setColumns: 5,
 		setLimit: 8,
 		setMultiplier: 5,
+		numberOfCombinations: 2000,
 	};
 	createNumbers();
 });
@@ -58,6 +64,7 @@ bigBoard.addEventListener ('click', () => {
 		setColumns: 6,
 		setLimit: 10,
 		setMultiplier: 6,
+		numberOfCombinations: 3600,
 	};
 	createNumbers();
 });
@@ -69,6 +76,7 @@ biggestBoard.addEventListener ('click', () => {
 		setColumns: 7,
 		setLimit: 12,
 		setMultiplier: 7,
+		numberOfCombinations: 4900,
 	};
 	createNumbers();
 });
@@ -80,6 +88,7 @@ hugeBoard.addEventListener ('click', () => {
 		setColumns: 8,
 		setLimit: 14,
 		setMultiplier: 8,
+		numberOfCombinations: 6400,
 	};
 	createNumbers();
 });
@@ -100,6 +109,7 @@ window.onload = function() {
 		startTimer();
 	}
 }
+
 function cellClick(event) {
 	soundHandler('./assets/sounds/tink.wav');
 	playerMoves += 1;
@@ -122,15 +132,19 @@ function cellClick(event) {
     //checked a winning combination
 		for(i = 0; i < startBoard.setRows; ++i)
 			for(j = 0; j < startBoard.setColumns; ++j)
-				if(i + j != startBoard.setLimits && document.getElementById(i + " " + j).innerHTML != i * startBoard.setMultiplier + j + 1){
+				if(i + j != startBoard.setLimit && document.getElementById(i + " " + j).innerHTML != i * startBoard.setMultiplier + j + 1){
 					checkVictory = false;
 					break;
 				}
-				if(checkVictory) PopUpShow();
-			}
+				if(checkVictory) {
+					victoryMessage.innerHTML = `Congratulations! You solved the puzzle in ${watchTime.value} and ${playerMoves} moves`
+					PopUpShow();
+					ClearСlock();
+				}
+	}
 }
 
-//added array with 15 elements
+//added array with N elements
 function createNumbers(){
 	playerMoves = 0;
 	for(rows = 0; rows < startBoard.setRows; ++rows){
@@ -146,7 +160,7 @@ function createNumbers(){
 //mix created elements on array
 	emptyRow = (startBoard.setRows - 1);
 	emptyColumn = (startBoard.setRows - 1);
-	for(i = 0; i < 1600; ++i)
+	for(i = 0; i < startBoard.numberOfCombinations; ++i)
 		switch(Math.round((startBoard.setRows - 1) * Math.random())){
       // up
 			case 0: if(emptyRow != 0) swap(arr,emptyRow,emptyColumn,--emptyRow,emptyColumn); break;

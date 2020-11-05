@@ -89,7 +89,7 @@ td {
 .b-popup{
     width: 100%;
     min-height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.8);
     overflow: hidden;
     position: absolute;
     top: 1200px;
@@ -100,7 +100,7 @@ td {
   .b-popup {
     width: 100%;
     min-height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.8);
     overflow: hidden;
     position: absolute;
     top: 1350px;
@@ -110,14 +110,15 @@ td {
 }
 @media only screen and (min-width: 1200px){
   .b-popup {
-    width: 100%;
+    /* width: 100%; */
     min-height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.8);
     overflow: hidden;
     position: absolute;
-    top: 75px;
-    padding-top: 100px;
-    z-index: 100;
+    top: 0px;
+    left: 0px;
+    padding-top: 0px;
+    z-index: 3000;
   }
 }
 .b-popup .b-popup-content{
@@ -140,7 +141,7 @@ td {
 }
 @media only screen and (min-width: 1200px){
   .b-popup .b-popup-content {
-    width: 952px;
+    width: 702px;
     height: 552px;
     margin: auto;
     -ms-flex-item-align: center;
@@ -151,4 +152,35 @@ td {
 .align_self_flex_end {
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+.align_items_center {
+  align-items: center;
+}
+.justify_content_center {
+  justify-content: center;
+}
+.victory {
+  color: white;
+  font-size: 2em;
+}
+.height_100 {
+  height: 100%;
+}
+.cross {
+display: inherit;
+border: 2px solid white;
+-webkit-box-sizing: border-box;
+        box-sizing: border-box;
+display: block;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+line-height: 40px;
+text-align: center;
+-ms-flex-item-align: end;
+    -ms-grid-row-align: end;
+    align-self: flex-end;
+}
+.cross:hover {
+  background-color: white;
 }
