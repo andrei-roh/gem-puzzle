@@ -1,4 +1,4 @@
-.nav {
+.nav_right {
     width: 320px;
     min-width: 320px;
     height: 100%;
@@ -6,17 +6,17 @@
     top: 0;
     bottom: 0;
     margin: 0;
-    left: -320px;
+    right: -320px;
     padding: 15px 20px;
-    -webkit-transition: left 0.3s;
-    -moz-transition: left 0.3s;
-    transition: left 0.3s;
+    -webkit-transition: right 0.3s;
+    -moz-transition: right 0.3s;
+    transition: right 0.3s;
     background: #4b475c;
     z-index: 2000;
 }
-.nav-toggle {
+.nav-toggle_right {
     position: absolute;
-    left: 320px;
+    right: 320px;
     top: 0.5em;
     padding: 0.5em;
     background: inherit;
@@ -30,35 +30,41 @@
     transition: color .25s ease-in-out;
 }
 /*make button icon (TRIGRAM FOR HEAVEN)*/
-.nav-toggle:after {
+.nav-toggle_right:after {
     content: '\2630';
     text-decoration: none;
 }
 
 /*text color on hover*/
-.nav-toggle:hover {
+.nav-toggle_right:hover {
     color: black;
 }
 
 /*Hidden checkbox*/
-[id='nav-toggle'] {
+[id='nav-toggle_right'] {
     position: absolute;
     display: none;
 }
+
+[id='nav-toggle_right']:checked ~ .nav_right > .nav-toggle_right {
+    left: auto;
+    right: 2px;
+    top: 1em;
+}
 /*if (panel open){.nav change}*/
-[id='nav-toggle']:checked ~ .nav {
-    left: 0;
-    box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
-    -moz-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
-    -webkit-box-shadow:4px 0px 20px 0px rgba(0,0,0, 0.5);
+[id='nav-toggle_right']:checked ~ .nav_right {
+    right: 0;
+    box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
     overflow-y: auto;
 }
 /*MULTIPLICATION X*/
-[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+[id='nav-toggle_right']:checked ~ .nav_right > .nav-toggle_right:after {
     content: '\2715';
 }
 /*плавное появление заголовка (логотипа) при раскрытии панели */
-[id='nav-toggle']:checked ~ .nav h2 {
+[id='nav-toggle_right']:checked ~ .nav_right h2 {
     opacity: 1;
     transform: scale(1, 1);
     -ms-transform: scale(1, 1);
@@ -69,14 +75,14 @@
 ul {
   list-style: none;
 }
-.nav > ul {
+.nav_right > ul {
     display: block;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.nav > ul > li {
+.nav_right > ul > li {
     line-height: 2.5;
     opacity: 0;
     -webkit-transform: translateX(-50%);
@@ -88,13 +94,10 @@ ul {
     -ms-transition: opacity .5s .1s, -ms-transform .5s .1s;
     transition: opacity .5s .1s, transform .5s .1s;
 }
-[id='nav-toggle']:checked ~ .nav > ul > li {
+[id='nav-toggle_right']:checked ~ .nav_right > ul > li {
     opacity: 1;
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
-}
-.logo_header {
-  color: white;x
 }

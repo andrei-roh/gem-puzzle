@@ -184,3 +184,6 @@ text-align: center;
 .cross:hover {
   background-color: white;
 }
+.top_score {
+  color: white;
+}

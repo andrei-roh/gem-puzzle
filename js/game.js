@@ -10,6 +10,7 @@ function soundHandler(soundSource) {
 
 var moves = document.getElementById('moves');
 var victoryMessage = document.getElementById('victory');
+var top_score = document.getElementById('top_score')
 var watchTime = document.getElementById('watch')
 moves.innerHTML =`Moves: 0`;
 
@@ -20,78 +21,6 @@ let startBoard = {
 	setMultiplier: 4,
 	numberOfCombinations: 1600,
 }
-
-var tinyBoard = document.getElementById('3x3');
-tinyBoard.addEventListener ('click', () => {
-	startBoard = {
-		setRows: 3,
-		setColumns: 3,
-		setLimit: 4,
-		setMultiplier: 3,
-		numberOfCombinations: 900,
-	};
-	createNumbers();
-});
-
-var smallBoard = document.getElementById('4x4');
-smallBoard.addEventListener ('click', () => {
-	startBoard = {
-		setRows: 4,
-		setColumns: 4,
-		setLimit: 6,
-		setMultiplier: 4,
-		numberOfCombinations: 1600,
-	};
-	createNumbers();
-});
-
-var middleBoard = document.getElementById('5x5');
-middleBoard.addEventListener ('click', () => {
-	startBoard = {
-		setRows: 5,
-		setColumns: 5,
-		setLimit: 8,
-		setMultiplier: 5,
-		numberOfCombinations: 2000,
-	};
-	createNumbers();
-});
-
-var bigBoard = document.getElementById('6x6');
-bigBoard.addEventListener ('click', () => {
-	startBoard = {
-		setRows: 6,
-		setColumns: 6,
-		setLimit: 10,
-		setMultiplier: 6,
-		numberOfCombinations: 3600,
-	};
-	createNumbers();
-});
-
-var biggestBoard = document.getElementById('7x7');
-biggestBoard.addEventListener ('click', () => {
-	startBoard = {
-		setRows: 7,
-		setColumns: 7,
-		setLimit: 12,
-		setMultiplier: 7,
-		numberOfCombinations: 4900,
-	};
-	createNumbers();
-});
-
-var hugeBoard = document.getElementById('8x8');
-hugeBoard.addEventListener ('click', () => {
-	startBoard = {
-		setRows: 8,
-		setColumns: 8,
-		setLimit: 14,
-		setMultiplier: 8,
-		numberOfCombinations: 6400,
-	};
-	createNumbers();
-});
 
 //change two elements on array
 function swap(arr,i1,j1,i2,j2) {
@@ -111,8 +40,6 @@ window.onload = function() {
 }
 
 function cellClick(event) {
-	soundHandler('./assets/sounds/tink.wav');
-	playerMoves += 1;
 	var event = event || window.event,
 		el = event.srcElement || event.target,
     //get the number of the row and column at the intersection of which the cell is located.
@@ -120,7 +47,6 @@ function cellClick(event) {
 		j = el.id.charAt(2);
     /*if empty cell is located in the same row or the same column with the cell that was clicked,
 		then their contents are swapped*/
-		 moves.innerHTML =`Moves: ${playerMoves}`;
 
 	if((i == emptyRow && Math.abs(j - emptyColumn) == 1) || (j == emptyColumn && Math.abs(i - emptyRow) == 1)){
 		document.getElementById(emptyRow + " " + emptyColumn).innerHTML = el.innerHTML;
@@ -129,7 +55,12 @@ function cellClick(event) {
 		emptyRow = i;
 		emptyColumn = j;
 		var checkVictory = true;
-    //checked a winning combination
+		//write moves
+		playerMoves += 1;
+		moves.innerHTML =`Moves: ${playerMoves}`;
+		//moving sound 
+		soundHandler('./assets/sounds/tink.wav');
+		//checked a winning combination
 		for(i = 0; i < startBoard.setRows; ++i)
 			for(j = 0; j < startBoard.setColumns; ++j)
 				if(i + j != startBoard.setLimit && document.getElementById(i + " " + j).innerHTML != i * startBoard.setMultiplier + j + 1){
@@ -137,7 +68,9 @@ function cellClick(event) {
 					break;
 				}
 				if(checkVictory) {
-					victoryMessage.innerHTML = `Congratulations! You solved the puzzle in ${watchTime.value} and ${playerMoves} moves`
+					victoryMessage.innerHTML = `Congratulations! You solved the puzzle in ${watchTime.value} and ${playerMoves} moves`;
+					localStorage.setItem('result', victoryMessage.innerHTML);
+					top_score.innerHTML = localStorage.getItem('result').substring(42);
 					PopUpShow();
 					ClearСlock();
 				}
@@ -196,18 +129,4 @@ function createNumbers(){
 	if(box.childNodes.length == 1)
 		box.removeChild(box.firstChild);
 	  box.appendChild(table);
-}
-
-//POPUP
-$(document).ready(function(){
-		//Скрыть PopUp при загрузке страницы
-		PopUpHide();
-});
-//Функция отображения PopUp
-function PopUpShow(){
-		$("#popup1").show();
-}
-//Функция скрытия PopUp
-function PopUpHide(){
-		$("#popup1").hide();
 }
