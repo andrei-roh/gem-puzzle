@@ -57,6 +57,7 @@ td {
 	border: none;
 	font: inherit;
 	padding-left: 0px;
+  padding-bottom: 1em;
 }
 .board_checked {
 	display: flex;

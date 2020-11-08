@@ -1,5 +1,6 @@
 var arr = [], box, emptyRow, emptyColumn;
 var playerMoves = 0;
+var score = [];
 
 //keysound
 function soundHandler(soundSource) {
@@ -29,7 +30,7 @@ function swap(arr,i1,j1,i2,j2) {
 	arr[i2][j2] = t;
 }
 window.onload = function() {
-	startTimer()
+	startTimer();
 	box = document.getElementById("box");
 	createNumbers();
 	document.getElementById("reset").onclick = () => {
@@ -58,7 +59,7 @@ function cellClick(event) {
 		//write moves
 		playerMoves += 1;
 		moves.innerHTML =`Moves: ${playerMoves}`;
-		//moving sound 
+		//moving sound
 		soundHandler('./assets/sounds/tink.wav');
 		//checked a winning combination
 		for(i = 0; i < startBoard.setRows; ++i)
@@ -70,9 +71,17 @@ function cellClick(event) {
 				if(checkVictory) {
 					victoryMessage.innerHTML = `Congratulations! You solved the puzzle in ${watchTime.value} and ${playerMoves} moves`;
 					localStorage.setItem('result', victoryMessage.innerHTML);
-					top_score.innerHTML = localStorage.getItem('result').substring(42);
+					if (score.length <= 9) {
+						score.push(localStorage.getItem('result').substring(42));
+					}
+					else {
+						score.pop();
+						score.push(localStorage.getItem('result').substring(42));
+					}
+					top_score.innerHTML = score.join('<br><br>');
 					PopUpShow();
 					ClearСlock();
+					createNumbers();
 				}
 	}
 }

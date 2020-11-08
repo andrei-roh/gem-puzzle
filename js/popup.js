@@ -2,6 +2,7 @@
 $(document).ready(function(){
 		//Скрыть PopUp при загрузке страницы
 		PopUpHide();
+		startTimer();
 });
 //Функция отображения PopUp
 function PopUpShow(){
@@ -10,4 +11,5 @@ function PopUpShow(){
 //Функция скрытия PopUp
 function PopUpHide(){
 		$("#popup1").hide();
+		startTimer();
 }
