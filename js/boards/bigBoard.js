@@ -6,6 +6,7 @@ bigBoard.addEventListener ('click', () => {
 		setLimit: 10,
 		setMultiplier: 6,
 		numberOfCombinations: 3600,
+		setSize: 500,
 	};
 	createNumbers();
 });

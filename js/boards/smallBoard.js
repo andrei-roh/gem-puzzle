@@ -6,6 +6,7 @@ smallBoard.addEventListener ('click', () => {
 		setLimit: 6,
 		setMultiplier: 4,
 		numberOfCombinations: 1600,
+		setSize: 500,
 	};
 	createNumbers();
 });

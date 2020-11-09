@@ -21,6 +21,7 @@ let startBoard = {
 	setLimit: 6,
 	setMultiplier: 4,
 	numberOfCombinations: 1600,
+	setSize: 500,
 }
 
 //change two elements on array
@@ -42,16 +43,16 @@ window.onload = function() {
 
 function cellClick(event) {
 	var event = event || window.event,
-		el = event.srcElement || event.target,
+		element = event.srcElement || event.target,
     //get the number of the row and column at the intersection of which the cell is located.
-		i = el.id.charAt(0),
-		j = el.id.charAt(2);
+		i = element.id.charAt(0),
+		j = element.id.charAt(2);
     /*if empty cell is located in the same row or the same column with the cell that was clicked,
 		then their contents are swapped*/
 
 	if((i == emptyRow && Math.abs(j - emptyColumn) == 1) || (j == emptyColumn && Math.abs(i - emptyRow) == 1)){
-		document.getElementById(emptyRow + " " + emptyColumn).innerHTML = el.innerHTML;
-		el.innerHTML = "";
+		document.getElementById(emptyRow + " " + emptyColumn).innerHTML = element.innerHTML;
+		element.innerHTML = "";
     //remember a position of the empty cell
 		emptyRow = i;
 		emptyColumn = j;
@@ -91,7 +92,7 @@ function createNumbers(){
 	playerMoves = 0;
 	for(rows = 0; rows < startBoard.setRows; ++rows){
 		arr[rows] = []
-		for(columns = 0; columns < startBoard.setRows; ++columns){
+		for(columns = 0; columns < startBoard.setColumns; ++columns){
 			if(rows + columns != startBoard.setLimit)
 				arr[rows][columns] = rows * startBoard.setMultiplier + columns + 1;
 			else
@@ -118,6 +119,8 @@ function createNumbers(){
 	var table = document.createElement("table"),
 	tbody = document.createElement("tbody");
 	table.appendChild(tbody);
+	table.style.width = startBoard.setSize + "px";
+	table.style.height = startBoard.setSize + "px";
 	for(i = 0; i < startBoard.setRows; ++i) {
     //added rows in the table
 		var row = document.createElement("tr");

@@ -6,6 +6,7 @@ middleBoard.addEventListener ('click', () => {
 		setLimit: 8,
 		setMultiplier: 5,
 		numberOfCombinations: 2000,
+		setSize: 500,
 	};
 	createNumbers();
 });

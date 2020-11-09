@@ -6,6 +6,7 @@ tinyBoard.addEventListener ('click', () => {
 		setLimit: 4,
 		setMultiplier: 3,
 		numberOfCombinations: 900,
+		setSize: 500,
 	};
 	createNumbers();
 });
