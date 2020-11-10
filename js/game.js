@@ -115,30 +115,44 @@ function createNumbers(){
 			case 3: if(emptyColumn != 0) swap(arr,emptyRow,emptyColumn,emptyRow,--emptyColumn);
 		}
 
-  //create a table
-	var table = document.createElement("table"),
-	tbody = document.createElement("tbody");
-	table.appendChild(tbody);
-	table.style.width = startBoard.setSize + "px";
-	table.style.height = startBoard.setSize + "px";
-	for(i = 0; i < startBoard.setRows; ++i) {
-    //added rows in the table
-		var row = document.createElement("tr");
-		for(j = 0; j < startBoard.setColumns; ++j) {
-      //create cells in the table
-			var cell = document.createElement("td");
-				cell.id = i + " " + j;
-        //bind function on click to a cell
-				cell.onclick = cellClick;
-        //recording element in cell
-				cell.innerHTML = arr[i][j];
-        //added row in table
-				row.appendChild(cell);
-		}
-		tbody.appendChild(row);
+//create a board
+var board = document.createElement("board");
+board.style.display = "flex";
+board.style.flexDirection = "column";
+board.style.justifyContent = "center";
+board.style.alignItems = "center";
+board.style.width = startBoard.setSize + "px";
+board.style.height = startBoard.setSize + "px";
+for(i = 0; i < startBoard.setRows; ++i) {
+	//added rows in the table
+	var row = document.createElement("row");
+	row.id = "row";
+	row.style.display = "flex";
+	row.style.flexDirection = "row"
+	for(j = 0; j < startBoard.setColumns; ++j) {
+		//create cells in the table
+		var cell = document.createElement("cell");
+			cell.style.display = "flex";
+			cell.style.justifyContent = "center";
+			cell.style.alignItems = "center";
+			cell.style.color = "white";
+			cell.style.border = "solid white 1px"
+			cell.style.fontSize = "40px";
+			cell.style.minWidth = "55px";
+			cell.style.minHeight = "55px";
+			cell.style.margin = "1px";
+			cell.id = i + " " + j;
+			//bind function on click to a cell
+			cell.onclick = cellClick;
+			//recording element in cell
+			cell.innerHTML = arr[i][j];
+			//added row in table
+			row.appendChild(cell);
 	}
-  //check if the element has a table
+	board.appendChild(row);
+}
+//check if the element has a table
 	if(box.childNodes.length == 1)
 		box.removeChild(box.firstChild);
-	  box.appendChild(table);
+	  box.appendChild(board);
 }
