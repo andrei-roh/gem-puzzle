@@ -1,5 +1,6 @@
 * {
   font-family: 'Yanone Kaffeesatz', sans-serif;
+  color: white;
 }
 body {
 	background-color: #56526a;
@@ -7,7 +8,6 @@ body {
 input {
 	background-color: #56526a;
 	border: none;
-	color: white;
 	font-size: 16px;
 }
 button,
@@ -16,15 +16,32 @@ button:focus {
     outline: none;
 		cursor: pointer;
 }
+p {
+  margin: 0.5em 0.5em 0.5em 0;
+}
+ul {
+  margin-left: 0px;
+}
+#centralBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#infoBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 500px;
+  align-self: center;
+}
 #reset {
 	border: solid 1px white;
 	background-color: #4b475c;
-	color: white;
 	margin-top: 5px;
 	border: none
 }
 #row:hover {
-	color: white;
 	cursor: pointer;
 }
 #board {
@@ -34,9 +51,12 @@ button:focus {
 	width: 500px;
 	align-items: center;
 }
-.flex_column {
+#box {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+	height: 500px;
+	width: 500px;
+	align-items: center;
 }
 .menu_button {
 	display: flex;
@@ -50,27 +70,14 @@ button:focus {
 	display: flex;
 	flex-direction: column;
 	align-self	: center;
-	color: white;
-}
-.flex_row {
-	display: flex;
-	flex-direction: row;
-}
-.justify_content_space_around {
-	justify-content: space-around;
 }
 #moves {
-	color: white;
-}
-.width_500 {
-	width: 500px;
-}
-.align_self_center {
-	align-self: center;
 }
 .time {
-	color: white;
 	font-size: 16px;
+}
+.logo_header {
+  padding-left: 38px;
 }
 
 /* POPUP style */
@@ -110,6 +117,7 @@ button:focus {
   }
 }
 .b-popup .b-popup-content{
+    padding-top: 15%;
     width: 270px;
     height: 393px;
     margin: auto;
@@ -137,41 +145,32 @@ button:focus {
         align-self: center;
   }
 }
-.align_self_flex_end {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-}
-.align_items_center {
+.b_popup_box {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-}
-.justify_content_center {
   justify-content: center;
+  height: 100px;
 }
 .victory {
-  color: white;
   font-size: 2em;
 }
-.height_100 {
-  height: 100%;
-}
 .cross {
-display: inherit;
-border: 2px solid white;
--webkit-box-sizing: border-box;
-        box-sizing: border-box;
-display: block;
-width: 40px;
-height: 40px;
-border-radius: 50%;
-line-height: 40px;
-text-align: center;
--ms-flex-item-align: end;
-    -ms-grid-row-align: end;
-    align-self: flex-end;
+  align-self: flex-end;
+  display: inherit;
+  border: 2px solid white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  line-height: 40px;
+  text-align: center;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: flex-end;
 }
 .cross:hover {
   background-color: white;
-}
-.top_score {
-  color: white;
 }

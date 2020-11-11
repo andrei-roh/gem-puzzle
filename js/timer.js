@@ -22,7 +22,7 @@ function ClearСlock() {
   ms = 0;
   init = 0;
   readout = '00:00:00';
-  document.MyForm.stopwatch.value = readout;
+  document.myForm.stopwatch.value = readout;
 }
 
 //функция для старта секундомера
@@ -85,7 +85,7 @@ function StartTIME() {
     dh = '00';
   }
   readout = dh + ':' + dm + ':' + ds;
-  document.MyForm.stopwatch.value = readout;
+  document.myForm.stopwatch.value = readout;
   clocktimer = setTimeout("StartTIME()", 1);
 }
 

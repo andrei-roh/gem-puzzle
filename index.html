@@ -11,80 +11,15 @@
     <title>Gem Puzzle</title>
   </head>
   <body>
-    <input type="checkbox" id="nav-toggle_left" hidden>
-      <nav class="nav_left">
-        <label for="nav-toggle_left" class="nav-toggle_left" onclick></label>
-        <h2 class="logo">
-          <div class="logo_header">GEM PUZZLE</div>
-          <ul>
-            <li>
-              <button class="menu_button" id="reset" type="button" name="button">New Game</button>
-            </li>
-            <li>
-              <div class="board_checked">
-                <form>
-                  <p>Change board size:</p>
-                  <p><input id="3x3" name="board" type="radio" value="nedzen">3x3</p>
-                  <p><input id="4x4" name="board" type="radio" value="nedzen" checked>4x4</p></p>
-                  <p><input id="5x5" name="board" type="radio" value="nedzen">5x5</p>
-                  <p><input id="6x6" name="board" type="radio" value="nedzen">6x6</p>
-                  <p><input id="7x7" name="board" type="radio" value="nedzen">7x7</p>
-                  <p><input id="8x8" name="board" type="radio" value="nedzen">8x8</p>
-                </form>
-              </div>
-            </li>
-          </ul>
-        </h2>
-      </nav>
-    <input type="checkbox" id="nav-toggle_right" hidden>
-      <nav class="nav_right">
-        <label for="nav-toggle_right" class="nav-toggle_right" onclick></label>
-        <h2 class="logo">
-          <ul>
-            <li>
-              <button class="menu_button" id="reset" type="button" name="button">Score</button>
-            </li>
-            <li>
-              <div class="top_score" id="top_score"></div>
-            </li>
-          </ul>
-        </h2>
-      </nav>
-
-    <div id="main_menu" class="flex_column">
-      
-      <div class="flex_row justify_content_space_around width_500 align_self_center">
-        <form name=MyForm>
-          <span class="time">Time:</span>
-          <input id="watch" name=stopwatch size=10 value="00:00:00.00" disabled>
-        </form>
-        <div id="moves"></div>
-      </div>
-      <div class="flex_row justify_content_space_around">
-        <div id="box"></div>
-      </div>
-
-      <div class="b-popup" id="popup1">
-       <div class="b-popup-content">
-         <div class="flex_column align_items_center justify_content_center height_100">
-           <a href="javascript:PopUpHide()" class="cross align_self_flex_end">
-             <img class="vertical_align_middle" src="assets/icons/cross.svg">
-           </a>
-           <div id="victory" class="victory"></div>
-         </div>
-        </div>
-      </div>
-
-    </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   <script src="js/popup.js" type="text/javascript"></script>
+  <script src="js/game.js" type="text/javascript"></script>
   <script src="js/boards/tinyBoard.js" type="text/javascript"></script>
   <script src="js/boards/smallBoard.js" type="text/javascript"></script>
   <script src="js/boards/middleBoard.js" type="text/javascript"></script>
   <script src="js/boards/bigBoard.js" type="text/javascript"></script>
   <script src="js/boards/biggestBoard.js" type="text/javascript"></script>
   <script src="js/boards/hugeBoard.js" type="text/javascript"></script>
-  <script src="js/game.js" type="text/javascript"></script>
   <script src="js/timer.js" type="text/javascript"></script>
 </html>
