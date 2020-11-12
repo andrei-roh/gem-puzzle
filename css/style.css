@@ -174,3 +174,14 @@ ul {
 .cross:hover {
   background-color: white;
 }
+
+.cell_image {
+  background: url(../assets/images/1.jpg);
+  width: 57px;
+  height: 57px;
+  z-index: -10;
+}
+#myCanvas {
+  /* width: 150px;
+  height: 150px */
+}

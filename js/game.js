@@ -169,19 +169,24 @@ window.onload = function() {
 		startTimer();
 	}
 }
+console.log(imageSrc)
+
 
 function cellClick(event) {
 	var event = event || window.event,
 		element = event.srcElement || event.target,
+		emptyElement = document.getElementById(emptyRow + " " + emptyColumn),
 		//get the number of the row and column at the intersection of which the cell is located.
 		i = element.id.charAt(0),
 		j = element.id.charAt(2);
 		/*if empty cell is located in the same row or the same column with the cell that was clicked,
 		then their contents are swapped*/
-
 	if((i == emptyRow && Math.abs(j - emptyColumn) == 1) || (j == emptyColumn && Math.abs(i - emptyRow) == 1)){
 		document.getElementById(emptyRow + " " + emptyColumn).innerHTML = element.innerHTML;
 		element.innerHTML = "";
+		element.style.backgroundColor = "#56526a";
+		//changing the color of a previously empty element
+		emptyElement.style.backgroundColor = "#4d495f";
 		//remember a position of the empty cell
 		emptyRow = i;
 		emptyColumn = j;
@@ -269,12 +274,18 @@ for(i = 0; i < startBoard.setRows; ++i) {
 			cell.style.fontSize = "40px";
 			cell.style.minWidth = "55px";
 			cell.style.minHeight = "55px";
-			cell.style.margin = "1px";
+			cell.style.margin = "2px";
+			cell.style.backgroundColor = "#4d495f"
+
 			cell.id = i + " " + j;
 			//bind function on click to a cell
 			cell.onclick = cellClick;
 			//recording element in cell
 			cell.innerHTML = arr[i][j];
+			//color of the first empty cell
+			if (cell.innerHTML == '') {
+				cell.style.backgroundColor = "#56526a"
+			}
 			//added row in table
 			row.appendChild(cell);
 	}
