@@ -8,5 +8,7 @@ hugeBoard.addEventListener ('click', () => {
 		numberOfCombinations: 6400,
 		setSize: 500,
 	};
+	ClearСlock();
+	startTimer();
 	createNumbers();
 });

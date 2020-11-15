@@ -1,12 +1,8 @@
 //POPUP
-$(document).ready(function(){
-		PopUpHide();
-		startTimer();
-});
 function PopUpShow(){
-		$("#popup1").show();
+	b_popup.style.display = "flex";
 }
 function PopUpHide(){
-		$("#popup1").hide();
+		b_popup.style.display = "none";
 		startTimer();
 }

@@ -8,5 +8,7 @@ middleBoard.addEventListener ('click', () => {
 		numberOfCombinations: 2000,
 		setSize: 500,
 	};
+	ClearСlock();
+	startTimer();
 	createNumbers();
 });

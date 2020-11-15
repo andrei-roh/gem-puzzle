@@ -160,7 +160,7 @@ function swap(arr,i1,j1,i2,j2) {
 }
 
 window.onload = function() {
-	startTimer();
+	PopUpHide();
 	box = document.getElementById("box");
 	createNumbers();
 	document.getElementById("reset").onclick = () => {
@@ -170,6 +170,7 @@ window.onload = function() {
 	}
 }
 console.log(imageSrc)
+
 
 
 function cellClick(event) {
