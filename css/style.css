@@ -23,17 +23,33 @@ ul {
   margin-left: 0px;
 }
 #centralBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #infoBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 500px;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 #reset {
 	border: solid 1px white;
@@ -45,20 +61,34 @@ ul {
 	cursor: pointer;
 }
 #board {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 	height: 500px;
 	width: 500px;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 #box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 	height: 500px;
 	width: 500px;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 .menu_button {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
   width: 200px;
 	border: none;
@@ -67,9 +97,15 @@ ul {
   padding-bottom: 1em;
 }
 .board_checked {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-self	: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-ms-flex-item-align	: center;
+	    align-self	: center;
 }
 #moves {
 }
@@ -87,9 +123,9 @@ ul {
     background-color: rgba(0,0,0,0.8);
     overflow: hidden;
     position: absolute;
-    top: 1200px;
-    padding-top: 1000px;
-    z-index: 100;
+    top: 0px;
+    padding-top: 0px;
+    z-index: 3000;
 }
 @media only screen and (min-width: 768px){
   .b-popup {
@@ -98,9 +134,9 @@ ul {
     background-color: rgba(0,0,0,0.8);
     overflow: hidden;
     position: absolute;
-    top: 1350px;
-    padding-top: 1000px;
-    z-index: 100;
+    top: 0px;
+    padding-top: 0px;
+    z-index: 3000;
   }
 }
 @media only screen and (min-width: 1200px){
@@ -118,8 +154,8 @@ ul {
 }
 .b-popup .b-popup-content{
     padding-top: 15%;
-    width: 270px;
-    height: 393px;
+    width: 320px;
+    height: 400px;
     margin: auto;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -127,8 +163,8 @@ ul {
 }
 @media only screen and (min-width: 768px){
   .b-popup .b-popup-content {
-    width: 646px;
-    height: 402px;
+    width: 768px;
+    height: 400px;
     margin: auto;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -137,8 +173,8 @@ ul {
 }
 @media only screen and (min-width: 1200px){
   .b-popup .b-popup-content {
-    width: 702px;
-    height: 552px;
+    width: 800px;
+    height: 560px;
     margin: auto;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -146,10 +182,19 @@ ul {
   }
 }
 .b_popup_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100px;
 }
 .victory {
@@ -180,8 +225,4 @@ ul {
   width: 57px;
   height: 57px;
   z-index: -10;
-}
-#myCanvas {
-  /* width: 150px;
-  height: 150px */
 }
