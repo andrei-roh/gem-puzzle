@@ -1,1 +1,1 @@
-# gem-puzzle
+# gem-puzzle game
