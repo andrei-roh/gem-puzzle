@@ -8,7 +8,7 @@ tinyBoard.addEventListener ('click', () => {
 		numberOfCombinations: 900,
 		setSize: 500,
 	};
-	ClearСlock();
+	setClearClock();
 	startTimer();
-	createNumbers();
+	setCreateNumbers();
 });

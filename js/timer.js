@@ -1,100 +1,99 @@
-//timer
-//объявляем переменные
-var base = 60;
-var clocktimer, dateObj, dh, dm, ds, ms;
+const base = 60;
+var clocktimer,
+    dateObject,
+    resultHours,
+    resultMinutes,
+    resultSeconds,
+    milliSeconds;
 var readout = '';
-var h = 1,
-  m = 1,
-  tm = 1,
-  s = 0,
-  ts = 0,
-  ms = 0,
-  init = 0;
+var hours = 1,
+    minutes = 1,
+    timerMinutes = 1,
+    seconds = 0,
+    timerSeconds = 0,
+    milliSeconds = 0,
+    init = 0;
 
-//функция для очистки поля
-function ClearСlock() {
+function setClearClock() {
   clearTimeout(clocktimer);
-  h = 1;
-  m = 1;
-  tm = 1;
-  s = 0;
-  ts = 0;
-  ms = 0;
+  hours = 1;
+  minutes = 1;
+  timerMinutes = 1;
+  seconds = 0;
+  timerSeconds = 0;
+  milliSeconds = 0;
   init = 0;
   readout = '00:00:00';
   document.myForm.stopwatch.value = readout;
 }
 
-//функция для старта секундомера
-function StartTIME() {
-  var cdateObj = new Date();
-  var t = (cdateObj.getTime() - dateObj.getTime()) - (s * 1000);
-  if (t > 999) {
-    s++;
+function getStartTime() {
+  var getDate = new Date();
+  var time = (getDate.getTime() - dateObject.getTime()) - (seconds * 1000);
+  if (time > 999) {
+    seconds += 1;
   }
-  if (s >= (m * base)) {
-    ts = 0;
-    m++;
+  if (seconds >= (minutes * base)) {
+    timerSeconds = 0;
+    minutes++;
   } else {
-    ts = parseInt((ms / 100) + s);
-    if (ts >= base) {
-      ts = ts - ((m - 1) * base);
+    timerSeconds = parseInt((milliSeconds / 100) + seconds);
+    if (timerSeconds >= base) {
+      timerSeconds = timerSeconds - ((minutes - 1) * base);
     }
   }
-  if (m > (h * base)) {
-    tm = 1;
-    h++;
+  if (minutes > (hours * base)) {
+    timerMinutes = 1;
+    hours++;
   } else {
-    tm = parseInt((ms / 100) + m);
-    if (tm >= base) {
-      tm = tm - ((h - 1) * base);
+    timerMinutes = parseInt((milliSeconds / 100) + minutes);
+    if (timerMinutes >= base) {
+      timerMinutes = timerMinutes - ((hours - 1) * base);
     }
   }
-  ms = Math.round(t / 10);
-  if (ms > 99) {
-    ms = 0;
+  milliSeconds = Math.round(time / 10);
+  if (milliSeconds > 99) {
+    milliSeconds = 0;
   }
-  if (ms == 0) {
-    ms = '00';
+  if (milliSeconds == 0) {
+    milliSeconds = '00';
   }
-  if (ms > 0 && ms <= 9) {
-    ms = '0' + ms;
+  if (milliSeconds > 0 && milliSeconds <= 9) {
+    milliSeconds = '0' + milliSeconds;
   }
-  if (ts > 0) {
-    ds = ts;
-    if (ts < 10) {
-      ds = '0' + ts;
+  if (timerSeconds > 0) {
+    resultSeconds = timerSeconds;
+    if (timerSeconds < 10) {
+      resultSeconds = '0' + timerSeconds;
     }
   } else {
-    ds = '00';
+    resultSeconds = '00';
   }
-  dm = tm - 1;
-  if (dm > 0) {
-    if (dm < 10) {
-      dm = '0' + dm;
+  resultMinutes = timerMinutes - 1;
+  if (resultMinutes > 0) {
+    if (resultMinutes < 10) {
+      resultMinutes = '0' + resultMinutes;
     }
   } else {
-    dm = '00';
+    resultMinutes = '00';
   }
-  dh = h - 1;
-  if (dh > 0) {
-    if (dh < 10) {
-      dh = '0' + dh;
+  resultHours = hours - 1;
+  if (resultHours > 0) {
+    if (resultHours < 10) {
+      resultHours = '0' + resultHours;
     }
   } else {
-    dh = '00';
+    resultHours = '00';
   }
-  readout = dh + ':' + dm + ':' + ds;
-  document.myForm.stopwatch.value = readout;
-  clocktimer = setTimeout("StartTIME()", 1);
+  document.myForm.stopwatch.value = resultHours + ':' + resultMinutes + ':' + resultSeconds;
+  clocktimer = setTimeout("getStartTime()", 1);
 }
 
-//Функция запуска и остановки
 function startTimer() {
   if (init == 0) {
-    ClearСlock();
-    dateObj = new Date();
-    StartTIME();
+    setClearClock();
+    dateObject = new Date();
+    getStartTime();
     init = 1;
   } else {
     clearTimeout(clocktimer);

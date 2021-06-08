@@ -1,8 +1,8 @@
-//POPUP
-function PopUpShow(){
+function setPopUpShow() {
 	b_popup.style.display = "flex";
 }
-function PopUpHide(){
-		b_popup.style.display = "none";
-		startTimer();
+
+function setPopUpHide() {
+	b_popup.style.display = "none";
+	startTimer();
 }

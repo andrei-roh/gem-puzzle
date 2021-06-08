@@ -2,90 +2,102 @@
   font-family: 'Yanone Kaffeesatz', sans-serif;
   color: white;
 }
+
 body {
 	background-color: #56526a;
 }
+
 input {
-	background-color: #56526a;
-	border: none;
-	font-size: 16px;
+  background-color: #56526a;
+  border: none;
+  font-size: 16px;
 }
+
 button,
 button:active,
 button:focus {
-    outline: none;
-		cursor: pointer;
+  outline: none;
+	cursor: pointer;
 }
+
 p {
   margin: 0.5em 0.5em 0.5em 0;
 }
+
 ul {
   margin-left: 0px;
 }
+
 #centralBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
+
 #infoBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   width: 500px;
   -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
 }
+
 #reset {
 	border: solid 1px white;
 	background-color: #4b475c;
 	margin-top: 5px;
 	border: none
 }
+
 #row:hover {
 	cursor: pointer;
 }
+
 #board {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-	height: 500px;
-	width: 500px;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 500px;
+  width: 500px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
+
 #box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-	height: 500px;
-	width: 500px;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 500px;
+  width: 500px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
+
 .menu_button {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -96,38 +108,38 @@ ul {
 	padding-left: 0px;
   padding-bottom: 1em;
 }
+
 .board_checked {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
-	-ms-flex-item-align	: center;
-	    align-self	: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-item-align	: center;
+  align-self	: center;
 }
-#moves {
-}
+
 .time {
 	font-size: 16px;
 }
+
 .logo_header {
   padding-left: 38px;
 }
 
-/* POPUP style */
-.b-popup{
-    width: 100%;
-    min-height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    overflow: hidden;
-    position: absolute;
-    top: 0px;
-    padding-top: 0px;
-    z-index: 3000;
+.b-popup {
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  padding-top: 0px;
+  z-index: 3000;
 }
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
   .b-popup {
     width: 100%;
     min-height: 100%;
@@ -139,9 +151,8 @@ ul {
     z-index: 3000;
   }
 }
-@media only screen and (min-width: 1200px){
+@media only screen and (min-width: 1200px) {
   .b-popup {
-    /* width: 100%; */
     min-height: 100%;
     background-color: rgba(0,0,0,0.8);
     overflow: hidden;
@@ -152,14 +163,15 @@ ul {
     z-index: 3000;
   }
 }
+
 .b-popup .b-popup-content{
     padding-top: 15%;
     width: 320px;
     height: 400px;
     margin: auto;
     -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    -ms-grid-row-align: center;
+    align-self: center;
 }
 @media only screen and (min-width: 768px){
   .b-popup .b-popup-content {
@@ -167,8 +179,8 @@ ul {
     height: 400px;
     margin: auto;
     -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    -ms-grid-row-align: center;
+    align-self: center;
   }
 }
 @media only screen and (min-width: 1200px){
@@ -177,35 +189,38 @@ ul {
     height: 560px;
     margin: auto;
     -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    -ms-grid-row-align: center;
+    align-self: center;
   }
 }
+
 .b_popup_box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 100px;
 }
+
 .victory {
   font-size: 2em;
 }
+
 .cross {
   align-self: flex-end;
   display: inherit;
   border: 2px solid white;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
   width: 40px;
   height: 40px;
@@ -213,9 +228,10 @@ ul {
   line-height: 40px;
   text-align: center;
   -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: flex-end;
+  -ms-grid-row-align: end;
+  align-self: flex-end;
 }
+
 .cross:hover {
   background-color: white;
 }

@@ -8,7 +8,7 @@ smallBoard.addEventListener ('click', () => {
 		numberOfCombinations: 1600,
 		setSize: 500,
 	};
-	ClearСlock();
+	setClearClock();
 	startTimer();
-	createNumbers();
+	setCreateNumbers();
 });

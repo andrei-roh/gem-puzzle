@@ -8,7 +8,7 @@ bigBoard.addEventListener ('click', () => {
 		numberOfCombinations: 3600,
 		setSize: 500,
 	};
-	ClearСlock();
+	setClearClock();
 	startTimer();
-	createNumbers();
+	setCreateNumbers();
 });
